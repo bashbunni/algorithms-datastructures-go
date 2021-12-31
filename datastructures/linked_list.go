@@ -42,6 +42,14 @@ func (head *Node) Append(value int) {
 	curr = NewNode(value)
 }
 
+func (head *Node) Pop() {
+	curr := head
+	for curr.Next.Next != nil {
+		curr = curr.Next
+	}
+	curr.Next = nil
+}
+
 func BuildLinkedList() {
 	a := NewNode(1)
 	b := NewNode(2)
@@ -58,5 +66,7 @@ func BuildLinkedList() {
 	a.Append(5)
 	a.AddAfter(7, b)
 	fmt.Println(b.Next)
-	fmt.Println(a.Next)
+	fmt.Println(c.Next)
+	a.Pop()
+	fmt.Println(c.Next)
 }
