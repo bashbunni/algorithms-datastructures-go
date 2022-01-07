@@ -2,10 +2,11 @@ package main
 
 import (
 	"algorithms/datastructures"
+	"algorithms/multiplicationtable"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("vim-go")
 	datastructures.BuildLinkedList()
+	fmt.Println(multiplicationtable.MultiplicationTable(3))
 }
