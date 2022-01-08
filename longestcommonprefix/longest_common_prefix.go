@@ -7,12 +7,11 @@ import (
 
 func LongestCommonPrefix(strs []string) string {
 	// get shortest word -> the prefix will not be longer than the shortest word
-	// can do vertical scanning -> it will short circuit once we've hit the max len of a word
-	// short circuit: stop if len(strs) == 0
 	min := getSmallestWord(strs)
 	for _, str := range strs {
 		fmt.Println(strings.Index(str, min))
 		for strings.Index(str, min) != 0 && len(min) != 0 {
+			// pop off last char in smallest word until word2 includes that prefix or no match is found
 			min = min[:len(min)-1]
 		}
 		if len(min) == 0 {
